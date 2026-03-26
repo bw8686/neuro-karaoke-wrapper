@@ -174,26 +174,26 @@ jobs:
           mkdir -p renamed
 
           # Windows
-          find release/ -name '*.exe' | head -1 | xargs -I{} cp {} renamed/Neuro.Karaoke.Setup.exe
+          find release/ -type f -name '*.exe' | head -1 | xargs -I{} cp {} renamed/Neuro.Karaoke.Setup.exe
 
           # macOS
-          find release/ -name '*.dmg' | head -1 | xargs -I{} cp {} renamed/Neuro.Karaoke.Player.Setup.dmg
-          find release/ -name '*.app.zip' -o -name '*arm64*.zip' | head -1 | xargs -I{} cp {} renamed/Neuro.Karaoke.Player.Setup.Apple.Silicon.zip
+          find release/ -type f -name '*.dmg' | head -1 | xargs -I{} cp {} renamed/Neuro.Karaoke.Player.Setup.dmg
+          find release/ -type f \( -name '*.app.zip' -o -name '*arm64*.zip' \) | head -1 | xargs -I{} cp {} renamed/Neuro.Karaoke.Player.Setup.Apple.Silicon.zip
 
           # Linux x86_64
           for ext in deb rpm AppImage flatpak; do
-            f=$(find release/ -name "*x86_64*.$ext" -o -name "*amd64*.$ext" -o -name "*x64*.$ext" | head -1)
+            f=$(find release/ -type f \( -name "*x86_64*.$ext" -o -name "*amd64*.$ext" -o -name "*x64*.$ext" \) | head -1)
             [ -n "$f" ] && cp "$f" "renamed/Neuro.Karaoke.Player-x86_64.$ext"
           done
 
           # Linux arm64
           for ext in deb rpm AppImage flatpak; do
-            f=$(find release/ -name "*arm64*.$ext" -o -name "*aarch64*.$ext" | head -1)
+            f=$(find release/ -type f \( -name "*arm64*.$ext" -o -name "*aarch64*.$ext" \) | head -1)
             [ -n "$f" ] && cp "$f" "renamed/Neuro.Karaoke.Player-arm64.$ext"
           done
 
           # Android
-          find release/ -name '*.apk' | head -1 | xargs -I{} cp {} renamed/Neuro.Karaoke.Player.apk
+          find release/ -type f -name '*.apk' | head -1 | xargs -I{} cp {} renamed/Neuro.Karaoke.Player.apk
 
           echo "Renamed assets:"
           ls -lh renamed/
