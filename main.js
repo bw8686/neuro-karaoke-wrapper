@@ -233,7 +233,7 @@ function getOrCreateView(theme) {
     autoSelectTheme(view, THEME_LABELS[theme]);
     
     // Fix chat close button
-    view.webContents.executeJavaScript(`
+    if (!process.env.DISABLE_CUSTOM_TITLEBAR) view.webContents.executeJavaScript(`
       function waitForElement(selector, timeout = 5000) {
         return new Promise((resolve, reject) => {
           const interval = 50;
