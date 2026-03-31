@@ -5,7 +5,7 @@ const config = require('./config');
 const DiscordManager = require('./discord-manager');
 const TrayManager = require('./tray-manager');
 const NeuroKaraokeAPI = require('./neurokaraoke-api');
-const { checkForUpdates } = require('./update-checker');
+const { runSplashUpdater } = require('./auto-updater');
 
 // Lock colour profile to sRGB to prevent oversaturation after long sessions
 // (Chromium GPU colour-management can drift over extended uptime)
@@ -55,6 +55,20 @@ const SITE_MAP = {
 
 // Set app ID for Windows taskbar grouping
 app.setAppUserModelId(config.APP.ID);
+
+// Only allow one instance of the app at a time
+const gotTheLock = app.requestSingleInstanceLock();
+if (!gotTheLock) {
+  app.quit();
+} else {
+  app.on('second-instance', () => {
+    if (mainWindow) {
+      if (mainWindow.isMinimized()) mainWindow.restore();
+      mainWindow.show();
+      mainWindow.focus();
+    }
+  });
+}
 
 // Persistent state file for remembering user preferences (e.g. last site)
 const STATE_FILE = path.join(app.getPath('userData'), 'app-state.json');
@@ -219,9 +233,6 @@ function setupViewEvents(view, theme) {
       }
     );
 
-    view.webContents.once('did-finish-load', () => {
-      setTimeout(() => checkForUpdates(mainWindow), 3000);
-    });
   }
 }
 
@@ -612,6 +623,12 @@ function handleQuit() {
  * Initialize application
  */
 async function initialize() {
+  // Show splash and check for updates before creating the main window.
+  // If an update is downloaded, the app restarts — this code won't continue.
+  const { lastSite } = loadState();
+  const theme = SITE_MAP[lastSite] ? lastSite : 'neuro';
+  await runSplashUpdater(theme, iconPath);
+
   createWindow();
 
   trayManager = new TrayManager(iconPath);

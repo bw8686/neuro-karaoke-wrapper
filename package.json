@@ -40,7 +40,8 @@
       "discord-manager.js",
       "tray-manager.js",
       "neurokaraoke-api.js",
-      "update-checker.js",
+      "auto-updater.js",
+      "splash.html",
       "titlebar.html",
       "package.json",
       "assets/**/*"
