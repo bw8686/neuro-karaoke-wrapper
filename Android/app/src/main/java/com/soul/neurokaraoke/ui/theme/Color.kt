@@ -3,57 +3,68 @@ package com.soul.neurokaraoke.ui.theme
 import androidx.compose.ui.graphics.Color
 
 // ==========================================
-// NEURO THEME COLORS (Cyan/Blue)
+// NEURO THEME (Cyan — Cinematic Dark)
 // ==========================================
-val NeuroBackground = Color(0xFF121318)
-val NeuroSurface = Color(0xFF1E2330)
-val NeuroSurfaceVariant = Color(0xFF252B3B)
-val NeuroPrimary = Color(0xFF00D9FF)      // Cyan accent
-val NeuroSecondary = Color(0xFFFF6B9D)    // Pink accent
-val NeuroTertiary = Color(0xFF8B5CF6)     // Purple for variety
-val NeuroGradientStart = Color(0xFF00D9FF)  // Cyan (gradient start)
-val NeuroGradientEnd = Color(0xFF0099CC)    // Darker cyan (visible 2-color gradient)
-val NeuroOnBackground = Color(0xFFFFFFFF)
-val NeuroOnSurface = Color(0xFFB0B8C1)    // Muted text
-val NeuroOnSurfaceVariant = Color(0xFF6B7280)
-val NeuroDivider = Color(0xFF2A3142)
+val NeuroBackground = Color(0xFF060608)       // Near-black with blue undertone
+val NeuroSurface = Color(0xFF0F1117)          // Elevated surface
+val NeuroSurfaceVariant = Color(0xFF181B24)   // Cards, inputs
+val NeuroPrimary = Color(0xFF00D4FF)          // Cyan accent
+val NeuroSecondary = Color(0xFF64DFFF)        // Lighter cyan
+val NeuroTertiary = Color(0xFF8B5CF6)         // Purple for variety
+val NeuroGradientStart = Color(0xFF00D4FF)    // Cyan
+val NeuroGradientMid = Color(0xFF0099CC)      // Mid cyan
+val NeuroGradientEnd = Color(0xFF006B99)      // Deep cyan
+val NeuroOnBackground = Color(0xFFEDEDEF)     // Primary text (not pure white)
+val NeuroOnSurface = Color(0xFF9CA3AF)        // Secondary text
+val NeuroOnSurfaceVariant = Color(0xFF6B7280) // Tertiary/muted text
+val NeuroDivider = Color(0xFF1F2937)
+val NeuroGlow = Color(0xFF33E5FF)             // Bright glow
 
 // ==========================================
-// EVIL THEME COLORS (Pink/Magenta)
+// EVIL THEME (Pink/Magenta — Cinematic Dark)
 // ==========================================
-val EvilBackground = Color(0xFF120A0E)       // Dark reddish-purple
-val EvilSurface = Color(0xFF1E1318)          // Slightly lighter
-val EvilSurfaceVariant = Color(0xFF2A1B22)   // Even lighter for cards
-val EvilPrimary = Color(0xFFE91E8C)          // Hot pink/magenta
-val EvilSecondary = Color(0xFFFF6B9D)        // Lighter pink
-val EvilTertiary = Color(0xFFB34D80)         // Muted pink
-val EvilGradientStart = Color(0xFFE91E8C)    // Hot pink (gradient start)
-val EvilGradientEnd = Color(0xFF9C27B0)      // Purple (gradient end)
-val EvilOnBackground = Color(0xFFFFFFFF)
-val EvilOnSurface = Color(0xFFCBB0BC)        // Pinkish muted text
-val EvilOnSurfaceVariant = Color(0xFF8B6B7A)
-val EvilDivider = Color(0xFF3A2530)
+val EvilBackground = Color(0xFF080507)        // Near-black with warm undertone
+val EvilSurface = Color(0xFF14101A)           // Elevated
+val EvilSurfaceVariant = Color(0xFF1E1724)    // Cards
+val EvilPrimary = Color(0xFFE91E8C)           // Hot pink
+val EvilSecondary = Color(0xFFFF6BB5)         // Lighter pink
+val EvilTertiary = Color(0xFFB34D80)          // Muted rose
+val EvilGradientStart = Color(0xFFE91E8C)     // Hot pink
+val EvilGradientMid = Color(0xFFBF1574)       // Mid pink
+val EvilGradientEnd = Color(0xFF9C27B0)       // Purple
+val EvilOnBackground = Color(0xFFEDEDEF)
+val EvilOnSurface = Color(0xFFB0A3B8)         // Pinkish muted
+val EvilOnSurfaceVariant = Color(0xFF7A6B85)
+val EvilDivider = Color(0xFF2A1E32)
+val EvilGlow = Color(0xFFFF3DA6)
 
 // ==========================================
-// DUET THEME COLORS (Amethyst Purple)
+// DUET THEME (Amethyst Purple — Cinematic Dark)
 // ==========================================
-val DuetBackground = Color(0xFF0E0A14)       // Dark purple
-val DuetSurface = Color(0xFF1A1424)          // Slightly lighter
-val DuetSurfaceVariant = Color(0xFF261E32)   // Even lighter for cards
-val DuetPrimary = Color(0xFF9C5FD4)          // Amethyst purple
-val DuetSecondary = Color(0xFFB388E8)        // Lighter lavender
-val DuetTertiary = Color(0xFF7B4AAF)         // Deeper purple
-val DuetGradientStart = Color(0xFF9C5FD4)    // Amethyst (gradient start)
-val DuetGradientEnd = Color(0xFF6B3FA0)      // Deep purple (gradient end)
-val DuetOnBackground = Color(0xFFFFFFFF)
-val DuetOnSurface = Color(0xFFC4B8D4)        // Lavender muted text
-val DuetOnSurfaceVariant = Color(0xFF8A7A9E)
-val DuetDivider = Color(0xFF352A45)
+val DuetBackground = Color(0xFF070510)        // Deep purple-black
+val DuetSurface = Color(0xFF110E1C)           // Elevated
+val DuetSurfaceVariant = Color(0xFF1C1730)    // Cards
+val DuetPrimary = Color(0xFF9C5FD4)           // Amethyst
+val DuetSecondary = Color(0xFFB388E8)         // Lighter lavender
+val DuetTertiary = Color(0xFF7B4AAF)          // Deeper purple
+val DuetGradientStart = Color(0xFF9C5FD4)     // Amethyst
+val DuetGradientMid = Color(0xFF8247BD)       // Mid purple
+val DuetGradientEnd = Color(0xFF6B3FA0)       // Deep purple
+val DuetOnBackground = Color(0xFFEDEDEF)
+val DuetOnSurface = Color(0xFFB8B0C8)         // Lavender muted
+val DuetOnSurfaceVariant = Color(0xFF8278A0)
+val DuetDivider = Color(0xFF2A2240)
+val DuetGlow = Color(0xFFB87FE8)
 
 // ==========================================
-// SHARED / LEGACY COLORS
+// SHARED COLORS
 // ==========================================
-// Keep these for backward compatibility
+val OnPrimary = Color(0xFF000000)
+val OnSecondary = Color(0xFF000000)
+val ErrorColor = Color(0xFFFF5252)
+val SuccessColor = Color(0xFF4CAF50)
+
+// Legacy aliases (for gradual migration of screens)
 val Background = NeuroBackground
 val Surface = NeuroSurface
 val SurfaceVariant = NeuroSurfaceVariant
@@ -63,31 +74,18 @@ val Tertiary = NeuroTertiary
 val OnBackground = NeuroOnBackground
 val OnSurface = NeuroOnSurface
 val OnSurfaceVariant = NeuroOnSurfaceVariant
-val OnPrimary = Color(0xFF000000)
-val OnSecondary = Color(0xFF000000)
-
-// Additional colors for UI elements
 val CardBorder = Primary
 val DividerColor = NeuroDivider
-val ErrorColor = Color(0xFFFF5252)
-val SuccessColor = Color(0xFF4CAF50)
 
 // ==========================================
-// GLOW COLORS (brighter variants for neon glow layers)
+// GRADIENT COLOR LISTS
 // ==========================================
-val NeuroGlow = Color(0xFF33E5FF)       // Bright cyan glow
-val EvilGlow = Color(0xFFFF3DA6)        // Bright pink glow
-val DuetGlow = Color(0xFFB87FE8)        // Bright purple glow
-
-// ==========================================
-// GRADIENT COLOR LISTS (for gradient text, borders, progress bars)
-// ==========================================
-val NeuroGradientColors = listOf(NeuroGradientStart, NeuroGradientEnd)
-val EvilGradientColors = listOf(EvilGradientStart, EvilGradientEnd)
-val DuetGradientColors = listOf(DuetGradientStart, DuetGradientEnd)
+val NeuroGradientColors = listOf(NeuroGradientStart, NeuroGradientMid, NeuroGradientEnd)
+val EvilGradientColors = listOf(EvilGradientStart, EvilGradientMid, EvilGradientEnd)
+val DuetGradientColors = listOf(DuetGradientStart, DuetGradientMid, DuetGradientEnd)
 
 // Singer-specific colors
-val NeuroColor = Color(0xFF00D9FF)   // Cyan for Neuro
+val NeuroColor = Color(0xFF00D4FF)   // Cyan for Neuro
 val EvilColor = Color(0xFFE91E8C)    // Pink for Evil
-val DuetColor = Color(0xFF8B5CF6)    // Purple for Duet
+val DuetColor = Color(0xFF9C5FD4)    // Purple for Duet
 val OtherColor = Color(0xFF6B7280)   // Gray for Other
