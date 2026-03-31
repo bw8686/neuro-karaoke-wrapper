@@ -89,8 +89,9 @@ import com.soul.neurokaraoke.data.api.LyricsApi
 import com.soul.neurokaraoke.data.api.NeuroKaraokeApi
 import com.soul.neurokaraoke.data.model.Song
 import com.soul.neurokaraoke.ui.theme.NeonTheme
-import com.soul.neurokaraoke.ui.theme.animatedNeonGlow
-import com.soul.neurokaraoke.ui.theme.neonBorder
+import com.soul.neurokaraoke.ui.theme.CyberLabelStyle
+import com.soul.neurokaraoke.ui.theme.gradientBorder
+import com.soul.neurokaraoke.ui.theme.pulsingGlow
 import com.soul.neurokaraoke.viewmodel.RepeatMode
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -244,11 +245,10 @@ fun PlayerScreen(
             modifier = Modifier
                 .fillMaxWidth(0.85f)
                 .aspectRatio(1f)
-                .neonBorder(
+                .gradientBorder(
                     colors = NeonTheme.colors.borderColors,
                     borderWidth = 1.dp,
-                    cornerRadius = 16.dp,
-                    glowRadius = 4.dp
+                    cornerRadius = 16.dp
                 )
                 .clip(RoundedCornerShape(16.dp))
                 .background(MaterialTheme.colorScheme.surfaceVariant)
@@ -426,7 +426,7 @@ fun PlayerScreen(
                 modifier = Modifier
                     .size(72.dp)
                     .then(
-                        if (isPlaying) Modifier.animatedNeonGlow(
+                        if (isPlaying) Modifier.pulsingGlow(
                             color = NeonTheme.colors.glowColor,
                             baseRadius = 10.dp,
                             cornerRadius = 36.dp
@@ -482,7 +482,7 @@ fun PlayerScreen(
         Button(
             onClick = { showQueue = true },
             colors = ButtonDefaults.buttonColors(
-                containerColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.1f),
+                containerColor = MaterialTheme.colorScheme.surface.copy(alpha = 0.7f),
                 contentColor = MaterialTheme.colorScheme.primary
             ),
             shape = RoundedCornerShape(24.dp),
@@ -491,9 +491,9 @@ fun PlayerScreen(
                 .height(48.dp)
         ) {
             Text(
-                text = "View Queue",
-                style = MaterialTheme.typography.labelLarge,
-                fontWeight = FontWeight.Medium
+                text = "VIEW QUEUE",
+                style = CyberLabelStyle,
+                color = MaterialTheme.colorScheme.primary
             )
         }
     }
