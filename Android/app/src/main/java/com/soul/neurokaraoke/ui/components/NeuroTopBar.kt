@@ -1,17 +1,13 @@
 package com.soul.neurokaraoke.ui.components
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -35,7 +31,7 @@ import com.soul.neurokaraoke.R
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun NeuroTopBar(
-    onMenuClick: () -> Unit,
+    onMenuClick: () -> Unit = {},  // Deprecated — kept for compile compat until MainScreen rewrite
     onProfileClick: () -> Unit = {},
     avatarUrl: String? = null,
     modifier: Modifier = Modifier
@@ -44,24 +40,13 @@ fun NeuroTopBar(
 
     CenterAlignedTopAppBar(
         title = {
-            Row(
-                verticalAlignment = Alignment.CenterVertically
-            ) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
                 Image(
                     painter = painterResource(id = R.mipmap.neuro_foreground),
                     contentDescription = "NeuroKaraoke Logo",
-                    modifier = Modifier.size(45.dp)
+                    modifier = Modifier.size(40.dp)
                 )
                 Spacer(modifier = Modifier.width(8.dp))
-            }
-        },
-        navigationIcon = {
-            IconButton(onClick = onMenuClick) {
-                Icon(
-                    imageVector = Icons.Default.Menu,
-                    contentDescription = "Menu",
-                    tint = primaryColor.copy(alpha = 0.8f)
-                )
             }
         },
         actions = {
@@ -71,7 +56,7 @@ fun NeuroTopBar(
                         model = avatarUrl,
                         contentDescription = "Profile",
                         modifier = Modifier
-                            .size(28.dp)
+                            .size(30.dp)
                             .clip(CircleShape),
                         contentScale = ContentScale.Crop
                     )
@@ -79,8 +64,8 @@ fun NeuroTopBar(
                     Icon(
                         imageVector = Icons.Default.AccountCircle,
                         contentDescription = "Profile",
-                        modifier = Modifier.size(28.dp),
-                        tint = primaryColor.copy(alpha = 0.8f)
+                        modifier = Modifier.size(30.dp),
+                        tint = primaryColor.copy(alpha = 0.7f)
                     )
                 }
             }
@@ -89,18 +74,17 @@ fun NeuroTopBar(
             containerColor = MaterialTheme.colorScheme.background
         ),
         modifier = modifier.drawBehind {
-            // Subtle neon bottom border line (gradient fade)
-            val gradientBrush = Brush.horizontalGradient(
+            val lineGradient = Brush.horizontalGradient(
                 colors = listOf(
                     Color.Transparent,
-                    primaryColor.copy(alpha = 0.4f),
-                    primaryColor.copy(alpha = 0.6f),
-                    primaryColor.copy(alpha = 0.4f),
+                    primaryColor.copy(alpha = 0.15f),
+                    primaryColor.copy(alpha = 0.25f),
+                    primaryColor.copy(alpha = 0.15f),
                     Color.Transparent
                 )
             )
             drawLine(
-                brush = gradientBrush,
+                brush = lineGradient,
                 start = Offset(0f, size.height),
                 end = Offset(size.width, size.height),
                 strokeWidth = 1.dp.toPx()
