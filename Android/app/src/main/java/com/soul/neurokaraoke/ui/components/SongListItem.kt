@@ -48,7 +48,6 @@ import androidx.compose.ui.text.font.FontFamily
 import com.soul.neurokaraoke.ui.theme.DuetColor
 import com.soul.neurokaraoke.ui.theme.EvilColor
 import com.soul.neurokaraoke.ui.theme.NeuroColor
-import com.soul.neurokaraoke.ui.theme.Primary
 
 @Composable
 fun SongListItem(
@@ -70,7 +69,7 @@ fun SongListItem(
         Singer.NEURO -> NeuroColor
         Singer.EVIL -> EvilColor
         Singer.DUET -> DuetColor
-        Singer.OTHER -> Primary
+        Singer.OTHER -> MaterialTheme.colorScheme.onSurfaceVariant
     }
 
     Row(
@@ -94,8 +93,8 @@ fun SongListItem(
         Box(
             modifier = Modifier
                 .size(48.dp)
-                .clip(RoundedCornerShape(4.dp))
-                .border(1.dp, singerColor.copy(alpha = 0.5f), RoundedCornerShape(4.dp))
+                .clip(RoundedCornerShape(8.dp))
+                .border(1.dp, singerColor.copy(alpha = 0.4f), RoundedCornerShape(8.dp))
                 .background(MaterialTheme.colorScheme.surfaceVariant),
             contentAlignment = Alignment.Center
         ) {
@@ -107,21 +106,6 @@ fun SongListItem(
                 error = ColorPainter(MaterialTheme.colorScheme.surfaceVariant),
                 modifier = Modifier.matchParentSize()
             )
-            // Play icon overlay
-            Box(
-                modifier = Modifier
-                    .matchParentSize()
-                    .background(MaterialTheme.colorScheme.background.copy(alpha = 0.4f)),
-                contentAlignment = Alignment.Center
-            ) {
-                Icon(
-                    imageVector = Icons.Default.PlayArrow,
-                    contentDescription = "Play",
-                    tint = MaterialTheme.colorScheme.onBackground,
-                    modifier = Modifier.size(24.dp)
-                )
-            }
-
             // Downloaded badge
             if (isDownloaded) {
                 Icon(
@@ -177,7 +161,7 @@ fun SongListItem(
             Icon(
                 imageVector = if (isFavorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
                 contentDescription = if (isFavorite) "Remove from favorites" else "Add to favorites",
-                tint = if (isFavorite) Primary else MaterialTheme.colorScheme.onSurfaceVariant
+                tint = if (isFavorite) MaterialTheme.colorScheme.primary else MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
 
